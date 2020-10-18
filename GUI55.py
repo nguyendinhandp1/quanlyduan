@@ -7,6 +7,8 @@ import base64
 import Source as sc
 
 import cv2
+import re
+import string
 
 # ------------- Chuyen anh sang .PNG ---------------------------------------------
 # (vi o day chi doc duoc image.PNG nen phai chuyen sang.PNG)
@@ -95,7 +97,17 @@ window = sg.Window("LPI 55", layout, size=(450,600)).Finalize()
 
 #---------------------------end GUI-----------------------------------------
 
+#------------ Xoa ky tu thua trong ket qua string -------------------------
+def frmstring(s):
+    tmp = ""
+    for i in s:
+        if re.search("[A-Z]",i) or re.search("[0-9]", i):
+            tmp += i
 
+    return tmp
+
+
+#------------ End  Xoa ky tu thua trng ket qua string -------------------------
 
 
 # ------------------------- event Bnt --------------------------------------------
@@ -131,8 +143,9 @@ while True:
             # Xu ly cat bien so
             Cropped = sc.Xuly(img1)
             # xuat kq text
-            text_result = sc.Xuat(Cropped)
-            window["result"].update(text_result)
+            text_result = str(sc.Xuat(Cropped))
+            tmp = frmstring(text_result)
+            window["result"].update(tmp)
 
         except Exception as E:
             print(f'** Error {E} **')
