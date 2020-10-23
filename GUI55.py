@@ -141,7 +141,7 @@ while True:
             # Lay image di xu ly
             img1 = cv2.imread(str_url,cv2.IMREAD_COLOR)
             # Xu ly cat bien so
-            Cropped = sc.Xuly(img1)
+            Cropped = sc.Xuly(img1, 1)
             # xuat kq text
             text_result = str(sc.Xuat(Cropped))
             tmp = frmstring(text_result)
@@ -163,7 +163,7 @@ while True:
             img1 = cv2.imread(str_url,cv2.IMREAD_COLOR)
 
             # danh dau image
-            sign = sc.DanhDau(img1)
+            sign = sc.Xuly(img1, 2)
             # goi ham show ben source.py
             sc.image_sign(sign)
 
@@ -182,7 +182,7 @@ while True:
             # Lay image di xu ly
             img1 = cv2.imread(str_url,cv2.IMREAD_COLOR)
             # Xu ly cat bien so
-            Cropped = sc.Xuly(img1)
+            Cropped = sc.Xuly(img1, 1)
             # xuat kq sau khi cat
             sc.image_crop(Cropped)
 
