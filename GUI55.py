@@ -43,12 +43,12 @@ input_column = [
  
     [
         sg.Text("Image File"),
-        sg.In(size=(35, 1), key='new_image'),
+        sg.In(size=(39, 1), key='new_image'),
         sg.FileBrowse(target='new_image'),
     
     ],
     [
-        sg.Button("Open Image", key='open_image'),
+        sg.Button("Open Image", key='open_image', size=(100, 1)),
         
         
     ],
@@ -68,14 +68,14 @@ input_column = [
     [
         
         sg.Button("Show Result", key='bnt_find'),
-        sg.Button("Processed Image", key='bnt_image_sign'),
+        sg.Button("Image Has Been Marked", key='bnt_image_sign'),
         sg.Button("Result Image", key='bnt_image_result'),
-        sg.Button("Exit", key='Exit'),
+        sg.Button("Exit", key='Exit',size=(10, 1)),
     
     ],
     [
         sg.Text("Result: "),
-        sg.InputText(size=(45, 1), key="result"),
+        sg.InputText(size=(50, 1), key="result"),
     ],
 
  
@@ -125,11 +125,11 @@ while True:
             window["url_image"].update(filename)
 
             # Thay doi kich thuoc image + su dung ham convert_to-bytes ben tren
-            new_size = 400, 300
+            new_size = 420, 350
             window["image_source"].update(data=convert_to_bytes(filename, resize=new_size))
         except:
             pass
-    # event: click bnt 'bnt-find'
+    # event: click bnt 'bnt-find' , xuat ket qua qua text output
     if event == "bnt_find":
         try:
             # format url C:\\
@@ -150,7 +150,7 @@ while True:
         except Exception as E:
             print(f'** Error {E} **')
             pass     
-    # bnt_image_sign
+    # bnt_image_sign , xuat anh goc da duoc danh dau bien so
     if event == "bnt_image_sign":
         try:
             # format url C:\\
@@ -170,7 +170,7 @@ while True:
         except Exception as E:
             print(f'** Error {E} **')
             pass   
-    # image result     
+    # image result     , xuat bien so da cat khoi anh goc
     elif event == "bnt_image_result":
         try:
             # format url C:\\

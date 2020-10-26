@@ -78,7 +78,7 @@ def image_crop(Cropped):
 
 # Ảnh biển số đã được danh dau
 def image_sign(img): 
-    x =  cv2.resize(img,(400,300))
+    x =  cv2.resize(img,(420,350))
     cv2.imshow('Sign',x)
     return
  
